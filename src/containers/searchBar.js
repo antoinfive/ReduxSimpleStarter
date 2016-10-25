@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 class SearchBar extends Component {
   constructor(props) {
     super(props)
-    this.state = { term: ' ' };
+    this.state = { term: '' };
     this.onInputChange = this.onInputChange.bind(this)
     this.onFormSubmit = this.onFormSubmit.bind(this)
   }
@@ -20,14 +20,14 @@ class SearchBar extends Component {
   onFormSubmit(event) {
     event.preventDefault();
     this.props.fetchWeather(this.state.term)
-    this.setState({term: ' '})
+    this.setState({term: ''})
   }
 
   render() { 
     return (
       <form onSubmit={this.onFormSubmit} className="input-group">
         <input
-          placeholder="work please" 
+          placeholder="Enter a city name to get forecase information" 
           className="form-control" 
           value={this.state.term} 
           onChange={this.onInputChange} />
